@@ -1,0 +1,70 @@
+@ABMProductos_HostAddress = http://localhost:5291
+
+### 1. Obtener todos los productos
+
+GET {{ABMProductos_HostAddress}}/api/products
+Accept: application/json
+
+### 2. Obtener el producto con Id 3
+
+GET {{ABMProductos_HostAddress}}/api/products/3
+Accept: application/json
+
+### 3. Buscar un producto que no existe
+
+GET {{ABMProductos_HostAddress}}/api/products/999
+Accept: application/json
+
+### 4. Crear un producto nuevo
+
+POST {{ABMProductos_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Mouse gamer",
+  "price": 25000
+}
+
+### 5. Obtener todos los productos otra vez
+
+GET {{ABMProductos_HostAddress}}/api/products
+Accept: application/json
+
+### 6. Modificar el producto con Id 1
+
+PUT {{ABMProductos_HostAddress}}/api/products/1
+Content-Type: application/json
+
+{
+  "name": "Mouse inalámbrico actualizado",
+  "price": 5000
+}
+
+### 7. Intentar modificar un producto que no existe
+
+PUT {{ABMProductos_HostAddress}}/api/products/999
+Content-Type: application/json
+
+{
+  "name": "Producto inexistente",
+  "price": 1000
+}
+
+### 8. Eliminar el producto con Id 2
+
+DELETE {{ABMProductos_HostAddress}}/api/products/2
+
+### 9. Volver a eliminar el producto con Id 2
+
+DELETE {{ABMProductos_HostAddress}}/api/products/2
+
+### 10. POST inválido
+
+POST {{ABMProductos_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "",
+  "price": 100
+}
+
